@@ -1,0 +1,10 @@
+{% comment %} 자동정렬: ctrl + k + f {% endcomment %}
+
+<h1>Post List</h1>
+<ul>
+    {% for post in post_list %}
+    <h2>{{post.title}}</h2>
+    {{post.content}}
+    {% endfor %}
+    
+</ul>
