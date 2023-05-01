@@ -141,3 +141,6 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+# USER 모델 커스텀
+AUTH_USER_MODEL = 'auth.User'

@@ -1,12 +1,15 @@
 from django.db import models
 import sys
 import os
-
 from myproject.utils import uuid_name_upload_to
+from django.db import models
+from django.conf import settings
 
 
 # Create your models here.
 class Post(models.Model):
+    
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     message = models.TextField()
     
     # 필드 및 업로드 시간대별 다른 디렉토리에 저장
@@ -28,5 +31,13 @@ class Post(models.Model):
     # order_by 지정하면 이는 무시됨
     class Meta:
         ordering = ['-id']
+        
     
+class Comment(models.Model):
+    # post_id 필드 생성
+    post = models.ForeignKey('instagram.Post', on_delete=models.CASCADE) 
+    
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)    
 

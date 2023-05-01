@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Post
+from .models import Post, Comment
 from django.utils.safestring import mark_safe
 
 @admin.register(Post)
@@ -28,3 +28,12 @@ class PostAdmin(admin.ModelAdmin):
         if post.photo:
             return mark_safe( f'<img src="{post.photo.url}" style = "width:75px;" />')
         return None
+    
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    
+    list_display =['id', 'message', 'created_at']
+    list_display_links = ['id', 'message']
+    search_fields = ['message']
+    list_filter = []
