@@ -1,0 +1,4 @@
+{
+    // "python.pythonPath": "C\\Users\\User\\anaconda3\\envs\\djangoproject\\python.exe",
+    "python.pythonPath": "djangoproject\\Scripts\\python.exe",
+}
