@@ -24,4 +24,9 @@ class Post(models.Model):
     # def __str__(self):
     #     return f"Custom Post object ({self.id})"
     
+    # 기본정렬 지정
+    # order_by 지정하면 이는 무시됨
+    class Meta:
+        ordering = ['-id']
+    
 
