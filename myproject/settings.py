@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # third apps
+    'debug_toolbar',
+    'django_extensions',
     
     # locals apps
     'blog1',
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,3 +135,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'   # 각 media 파일에 대한 url prefix
 MEDIA_ROOT = os.path.join(BASE_DIR,'media') # 파일 필드를 통한 저장시, 파일을 저장할 root 경로
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
