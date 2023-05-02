@@ -22,7 +22,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("blog1", include('blog1.urls')),
-    path("instagram/", include('instagram.urls'))
+    path("instagram", include('instagram.urls')),
+    path("accounts",include('accounts.urls')),
 ]
 
 # 실제 서버일때는 if문 제거할 것
