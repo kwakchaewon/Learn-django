@@ -10,6 +10,8 @@ from django.conf import settings
 class Post(models.Model):
     
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    tag_set = models.ManyToManyField('Tag', blank= True)
+    
     message = models.TextField()
     
     # 필드 및 업로드 시간대별 다른 디렉토리에 저장
@@ -41,3 +43,11 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)    
 
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    
+    # 데이터 조회시 인스턴스 자체가 아닌 문자열로 표현하고 싶을 때
+    def __str__(self):
+        return self.name
+    

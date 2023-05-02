@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Post, Comment
+from .models import Post, Comment, Tag
 from django.utils.safestring import mark_safe
 
 @admin.register(Post)
@@ -36,4 +36,12 @@ class CommentAdmin(admin.ModelAdmin):
     list_display =['id', 'message', 'created_at']
     list_display_links = ['id', 'message']
     search_fields = ['message']
+    list_filter = []
+    
+    
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display =['name']
+    list_display_links = ['name',]
+    search_fields = ['name']
     list_filter = []
