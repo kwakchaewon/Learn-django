@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Post
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, FileResponse
 from django.views.generic import ListView
+from urllib.parse import quote
+import pandas as pd
 
 # Create your views here.
 
@@ -31,3 +33,7 @@ def post_detail(request, pk):
 post_list = ListView.as_view(model=Post)
 
 
+#  파일 다운로드 제공
+def read_excel(request):
+    response = FileResponse(open('sample data.xls','rb'))
+    return response
